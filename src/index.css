@@ -1,5 +1,159 @@
-body {
+*{
+  border: 0;
   margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+    sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  font-style: inherit;
+  font-weight: inherit;
+  outline: 0;
+  vertical-align: baseline;
+}
+
+.app-wrapper{
+  position: relative;
+  padding: 20px 0;
+  background-color: #D90000;
+}
+
+.app-background{
+  background: url(./assets/images/indian-army-logo.png) no-repeat center top;
+  min-height: 100vh;
+  background-size: contain;
+  background-color: #D90000;
+  position: absolute;
+  width: 100%;
+  z-index: 0;
+  top: 0;
+  left: 0;
+}
+
+.main-page{
+  width: 800px;
+  min-height: 85vh;
+  margin: 0 auto;
+  background-color: #ffffffe6;
+  padding: 20px;
+  position: relative;
+}
+
+.text-center{
+  text-align: center;
+}
+
+.header{
+  display: flex;
+  margin-top: 20px;
+}
+.header a {
+  border: 1px solid rgba(0, 0, 0, 0.125);
+  padding: 5px 10px;
+  display: block;
+  text-decoration: none;
+  color: #495057;
+  background-color: white;
+}
+.header a:not(:last-child){
+  border-right: none;
+}
+.header a.active{
+  background-color: #e9ecef;
+  color: #212529;
+}
+.header a:hover{
+  background-color: #f8f9fa;
+}
+
+.setup-form{
+  margin: 20px 0;
+}
+.input-div{
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 15px;
+}
+.input-right{
+  width: 50%;
+}
+input[type="text"], input[type="number"],  select, textarea{
+  padding: 5px 10px;
+  font-size: 20px;
+  border: 1px solid grey;
+  width: 300px;
+}
+.barrack-name{
+  width: 250px !important;
+}
+.barrack-vacancy{
+  width: 50px !important;
+}
+.icon-button {
+  background-color: grey;
+  width: 140px;
+  height: 30px;
+  color: white;
+  cursor: pointer;
+  font-size: 20px;
+  text-align: center;
+  transition: all 0.25s ease-in-out;
+}
+.icon-button:hover{
+  background-color: darkgray;
+}
+.icon-button.add{
+  margin-top: 10px;
+}
+.icon-button.cross{
+  margin-left: 10px;
+  width: 30px;
+  line-height: 25px;
+}
+.input-inner{
+  display: flex;
+  align-items: center;
+  margin-bottom: 10px;
+}
+
+.icon-button.save-form{
+  margin: 0 auto;
+  margin-top: 50px;
+}
+
+/* Chrome, Safari, Edge, Opera */
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+/* Firefox */
+input[type=number] {
+  -moz-appearance: textfield;
+}
+
+.setup-begin{
+  background-color: #a06767;
+  color: white;
+  padding: 15px 20px;
+  cursor: pointer;
+  transition: all 0.25s ease-in-out;
+  text-decoration: none;
+  display: inline-block;
+}
+.setup-begin:hover{
+  background-color: #735050;
+}
+
+textarea{
+  height: 120px !important;
+  width: 300px !important;
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
     'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
     sans-serif;
@@ -7,7 +161,39 @@ body {
   -moz-osx-font-smoothing: grayscale;
 }
 
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
+.input-right label{
+  display: block;
+  width: 200px;
+  cursor: pointer;
+}
+.input-right label input{
+  margin-right: 10px;
+}
+.label-wrap{
+  margin-bottom: 10px;
+}
+.any-other div{
+  margin-bottom: 5px;
+}
+.none-select{
+  user-select: none;
+}
+
+.setup-form header{
+  display: none;
+}
+
+img{
+  max-width: 100%;
+  max-height: 100%;
+}
+.home-img{
+  width: 300px;
+  margin: 10px auto;
+  margin-bottom: 0;
+}
+
+.barrack-date input{
+  width: 120px;
+  font-size: 14px;
 }
