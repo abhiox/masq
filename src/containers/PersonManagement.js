@@ -10,7 +10,7 @@ const storage = window.require('electron-json-storage');
 
 export default function PersonManagement(props) {
   const [initialSetup, setInitialSetup] = useState({
-    setupPresent: true
+    setupPresent: null
   });
   const [units, setUnits] = useState([]);
   const [barracks, setBarracks] = useState([]);
@@ -41,8 +41,14 @@ export default function PersonManagement(props) {
   useEffect(() => {
     storage.get('personList', function (error, data) {
       if (error) throw error;
-
+      
       if (data.length) {
+        if(localStorage.getItem('personEditId')){
+          let id = localStorage.getItem('personEditId');
+          let editPerson = data.find(per => per.uid === id);
+          setPerson(editPerson);
+          localStorage.removeItem('personEditId');
+        }
         setPersonList(data);
       }
     });
@@ -61,7 +67,7 @@ export default function PersonManagement(props) {
       ...setup,
       initialSetup: {
         ...setup.initialSetup,
-        totalBarracks: tempBarracks
+        barracks: tempBarracks
       }
     }, function (error) {
       if (error) {
@@ -167,7 +173,7 @@ export default function PersonManagement(props) {
                 {
                   units.map((unit, index) => {
                     return (
-                      <option key={`unit-${unit}-${index}`} value={unit}>{unit.name}</option>
+                      <option key={`unit-${unit}-${index}`} value={unit.name}>{unit.name}</option>
                     )
                   })
                 }

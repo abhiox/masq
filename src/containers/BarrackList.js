@@ -1,7 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import Datatable from 'react-data-table-component';
 import { useToasts } from 'react-toast-notifications';
-import { Link } from 'react-router-dom';
 import DatePicker from "react-datepicker";
 import "react-datepicker/dist/react-datepicker.css";
 import moment from 'moment';
@@ -11,13 +10,10 @@ const storage = window.require('electron-json-storage');
 export default function BarrackList(props) {
   const [barracks, setBarracks] = useState([]);
   const [initialSetup, setInitialSetup] = useState({});
-  const [loading, setLoading] = useState(false);
-  const [pagination, setPagination] = useState(false);
-  const [dense, setDense] = useState(false);
 
   const columns = [
     {
-      name: 'Name',
+      name: 'Barrack Name',
       selector: 'name',
       sortable: true,
     },
@@ -30,6 +26,7 @@ export default function BarrackList(props) {
       name: 'Occupied',
       selector: 'occupied',
       sortable: true,
+      cell: row => row.occupied ? row.occupied : 0,
     },
     {
       name: 'Occn Date',
@@ -84,7 +81,7 @@ export default function BarrackList(props) {
       ...initialSetup,
       initialSetup: {
         ...initialSetup.initialSetup,
-        totalBarracks: tempBarracks
+        barracks: tempBarracks
       }
     }, function (error) {
       if (error) {
@@ -105,22 +102,21 @@ export default function BarrackList(props) {
 
   return (
     <div className="setup-form">
-      {
-        barracks.length ?
-          <Datatable
-            title=""
-            columns={columns}
-            data={barracks}
-            defaultSortField="name"
-            pagination={pagination}
-            highlightOnHover
-            striped
-            overflowY
-            dense={dense}
-            progressPending={loading}
-          ></Datatable> :
-          <div>No data found!</div>
-      }
+      <div className="barrack-table">
+        <Datatable
+          title=""
+          columns={columns}
+          data={barracks}
+          defaultSortField="name"
+          pagination={false}
+          highlightOnHover
+          striped
+          overflowY
+          dense
+          progressPending={false}
+          noDataComponent={<div>No data found!</div>}
+        ></Datatable>
+      </div>
     </div>
   )
 }

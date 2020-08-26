@@ -23,4 +23,8 @@ export default [
     link: '/barrackList',
     name: 'Barrack List',
   },
+  {
+    link: '/unitList',
+    name: 'Unit List',
+  },
 ]

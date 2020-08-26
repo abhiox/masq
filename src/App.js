@@ -8,6 +8,7 @@ import PersonManagement from './containers/PersonManagement';
 import Reports from './containers/Reports';
 import PersonList from './containers/PersonList';
 import BarrackList from './containers/BarrackList';
+import UnitList from './containers/UnitList';
 
 const storage = window.require('electron-json-storage');
 
@@ -58,6 +59,11 @@ export default function App() {
           path="/barrackList"
           exact
           render={() => <BarrackList initialSetup={appData} />}
+        />
+        <Route
+          path="/unitList"
+          exact
+          render={() => <UnitList initialSetup={appData} />}
         />
       </ToastProvider>
     </>

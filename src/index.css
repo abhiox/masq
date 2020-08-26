@@ -36,8 +36,8 @@ body {
 }
 
 .main-page{
-  width: 800px;
-  min-height: 85vh;
+  width: 1100px;
+  min-height: 92vh;
   margin: 0 auto;
   background-color: #ffffffe6;
   padding: 20px;
@@ -196,4 +196,32 @@ img{
 .barrack-date input{
   width: 120px;
   font-size: 14px;
+}
+
+.icon-button.report-btn-1{
+  margin-bottom: 20px;
+  width: 210px;
+}
+.icon-button.report-btn-2{
+  width: 200px;
+}
+.preformat{
+  white-space: pre;
+}
+.redSurDef{
+  color: red;
+  font-weight: 700;
+}
+.greenSurDef{
+  color: green;
+  font-weight: 700;
+}
+
+.unit-table{
+  width: 600px;
+  margin: 0 auto;
+}
+.barrack-table{
+  width: 700px;
+  margin: 0 auto;
 }

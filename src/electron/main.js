@@ -5,13 +5,14 @@ let mainWindow;
  
 function createWindow() {
     mainWindow = new BrowserWindow({
-        width:800,
-        height:600,
+        width:1100,
+        height:800,
         show: false,
         webPreferences: { nodeIntegration: true }
     });
-    // const startURL = `file://${path.join(__dirname, '../../build/index.html')}`;
-    const startURL = 'http://localhost:3000';
+    mainWindow.maximize();
+    const startURL = `file://${path.join(__dirname, '../../build/index.html')}`;
+    // const startURL = 'http://localhost:3000';
  
     mainWindow.loadURL(startURL);
  

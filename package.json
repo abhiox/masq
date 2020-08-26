@@ -5,7 +5,6 @@
   "homepage": "./",
   "main": "./src/electron/main.js",
   "dependencies": {
-    "concurrently": "^5.3.0",
     "electron": "^9.1.1",
     "electron-json-storage": "^4.2.0",
     "moment": "^2.27.0",
@@ -16,8 +15,7 @@
     "react-export-excel": "^0.5.3",
     "react-router-dom": "^5.2.0",
     "react-toast-notifications": "^2.4.0",
-    "styled-components": "^5.1.1",
-    "wait-on": "^5.2.0"
+    "styled-components": "^5.1.1"
   },
   "scripts": {
     "start": "react-scripts start",
@@ -26,7 +24,7 @@
     "develop": "npm run build && electron .",
     "ebuild": "npm run build && node_modules/.bin/build",
     "dev": "concurrently \"npm start\" \"wait-on http://localhost:3000 && electron .\"",
-    "package-win": "electron-packager . masq --overwrite --asar=true --platform=win32 --arch=x64 --icon=icon.ico --prune=true --out=release-builds --version-string.CompanyName=NA --version-string.FileDescription=CE --version-string.ProductName=\"MASQ\""
+    "package-win": "npm run build && electron-packager . masq --overwrite --asar=true --platform=win32 --arch=x64 --icon=icon.ico --prune=true --out=release-builds --version-string.CompanyName=NA --version-string.FileDescription=CE --version-string.ProductName=\"MASQ\""
   },
   "devDependencies": {
     "electron-packager": "^14.2.1",
